@@ -1,0 +1,1 @@
+# This is ALDS1_10_A.py
