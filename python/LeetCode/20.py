@@ -1,15 +1,29 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        brackets = {
+            '(':')',
+            '[':']',
+            '{':'}'
+        }
+        stack = []
+        for char in s:
+            if char in brackets:
+                stack.append(char)
+            else:
+                if not stack:
+                    return False
+                if char != brackets[stack.pop()]:
+                    return False
+        
+        if len(stack) == 0:
+            return True
+        else:
+            return False
+                    
 
 s = input()
-i=0
-
-buckets = {
-    '(':')',
-    '[':']',
-    '{':'}'
-}
-
-for _ in s:
-    if _ == "("
+a = Solution()
+print(a.isValid(s))
 
 """
 
@@ -30,8 +44,8 @@ for _ in s:
 入力: s = "(]"
 出力: false
 例 4:
-入力: s = "([)]"
-出力: false
+入力: s = "([])"
+出力: true
 制約:
 
 1 <= s.length <= 104
